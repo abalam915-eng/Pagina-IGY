@@ -72,6 +72,14 @@ a {
   z-index: 20;
 }
 
+.header-menu {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 28px;
+  justify-content: flex-end;
+}
+
 .brand {
   align-items: center;
   display: inline-flex;
@@ -87,7 +95,6 @@ a {
 .main-nav {
   align-items: center;
   display: flex;
-  flex: 1;
   gap: 24px;
   justify-content: flex-end;
 }
@@ -116,6 +123,42 @@ a {
   padding: 14px 18px;
   text-align: center;
   text-decoration: none;
+}
+
+.menu-toggle {
+  align-items: center;
+  background: var(--bg-white);
+  border: 1px solid rgba(0, 161, 154, 0.18);
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(31, 67, 65, 0.1);
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.menu-toggle span {
+  background: var(--primary-teal);
+  border-radius: 999px;
+  display: block;
+  height: 3px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  width: 22px;
+}
+
+.site-header.menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.site-header.menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -206,6 +249,15 @@ a {
   color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.hero-copy > p:not(.eyebrow),
+.story-section > div > p,
+.agenda-preview > div > p,
+.identity-band article:nth-child(2) p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 .hero-actions {
@@ -707,21 +759,85 @@ a {
    ========================================================================== */
 @media (max-width: 860px) {
   .site-header {
-    align-items: flex-start;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    padding: 10px 18px;
+    position: sticky;
+  }
+
+  .brand {
+    grid-column: 2;
+    justify-self: center;
+  }
+
+  .brand-logo {
+    height: 56px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .header-menu {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(0, 161, 154, 0.12);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    display: none;
+    gap: 16px;
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    justify-content: center;
+    justify-items: center;
+    padding: 16px 14px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .site-header.menu-open .header-menu {
+    display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 14px 24px;
-    position: static;
   }
 
   .main-nav {
-    flex-wrap: wrap;
-    gap: 18px;
-    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    width: min(100%, 230px);
+  }
+
+  .main-nav a {
+    align-items: center;
+    border-bottom: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .main-nav a:hover {
+    background: var(--soft-green);
+    border-bottom: 0;
+  }
+
+  .main-nav a + a {
+    border-top: 1px solid rgba(0, 128, 122, 0.24);
   }
 
   .donation-button {
+    display: inline-flex;
+    justify-content: center;
     min-width: auto;
+    width: min(100%, 150px);
+    text-align: center;
   }
 
   .hero-section,
@@ -749,10 +865,29 @@ a {
 
   .hero-media {
     min-height: 260px;
+    order: -1;
   }
 
   .hero-media img {
     min-height: 260px;
+    opacity: 0.62;
+  }
+
+  .hero-copy h1,
+  .agenda-copy h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy > p:not(.eyebrow),
+  .story-section > div > p,
+  .agenda-preview > div > p,
+  .identity-band article:nth-child(2) p {
+    text-align: left;
   }
 
   .section-block {
@@ -765,6 +900,7 @@ a {
   }
 
   .story-modal-panel {
+    border-radius: 18px;
     grid-template-columns: 1fr;
     max-height: 90vh;
   }
@@ -775,6 +911,13 @@ a {
 
   .story-modal-content {
     max-height: calc(90vh - 230px);
+    padding: 22px;
+  }
+
+  .story-back {
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
 
   .site-footer {

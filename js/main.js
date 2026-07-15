@@ -10,6 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const APPOINTMENT_ENDPOINT = '/api/portal/appointment-contact';
 
     /* ==========================================================================
+       MENÚ MÓVIL
+       En celular oculta los enlaces dentro de un botón para mantener limpia la barra.
+       ========================================================================== */
+    const siteHeader = document.querySelector('.site-header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const headerMenu = document.querySelector('#site-menu');
+
+    function closeMobileMenu() {
+        siteHeader?.classList.remove('menu-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        menuToggle?.setAttribute('aria-label', 'Abrir menú');
+    }
+
+    menuToggle?.addEventListener('click', () => {
+        const isOpen = siteHeader?.classList.toggle('menu-open') || false;
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+
+    headerMenu?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    /* ==========================================================================
        FORMULARIO CORTO DE AGENDA
        Se usa en index.html. Solo pide nombre y teléfono porque
        la página funciona como carta de presentación y contacto inicial.
@@ -113,6 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMobileMenu();
+        }
+
         if (event.key === 'Escape' && storyModal && !storyModal.hidden) {
             closeStoryModal();
         }
