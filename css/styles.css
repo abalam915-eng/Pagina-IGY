@@ -28,10 +28,18 @@ html {
   scroll-behavior: smooth;
 }
 
+main section {
+  scroll-margin-top: 108px;
+}
+
 body {
   background: var(--soft-cream);
   color: var(--text-dark);
   font-family: 'Neo Sans Pro', 'Roboto', 'Outfit', sans-serif;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 img {
@@ -45,13 +53,17 @@ a {
 
 /* ==========================================================================
    HEADER
-   Navegacion simple: Inicio, Agenda tu cita y enlace externo VitaMayor.
+   Navegación simple: Inicio y Agenda tu cita.
    ========================================================================== */
 .site-header {
   align-items: center;
-  background: rgba(189, 222, 246, 0.94);
-  border-bottom: 1px solid rgba(104, 60, 17, 0.12);
+  background: rgba(255, 255, 255, 0.84);
+  border-bottom: 1px solid rgba(0, 161, 154, 0.08);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 10px 26px rgba(31, 67, 65, 0.12);
+  backdrop-filter: blur(16px);
   display: flex;
+  gap: 28px;
   justify-content: space-between;
   min-height: 88px;
   padding: 12px 48px;
@@ -75,26 +87,40 @@ a {
 .main-nav {
   align-items: center;
   display: flex;
-  gap: 28px;
+  flex: 1;
+  gap: 24px;
+  justify-content: flex-end;
 }
 
 .main-nav a {
   border-bottom: 3px solid transparent;
-  color: var(--primary-brown);
+  color: var(--text-dark);
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 700;
   padding: 8px 0;
   text-decoration: none;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-  border-bottom-color: var(--primary-brown);
+.main-nav a:hover {
+  border-bottom-color: var(--primary-teal);
+  color: var(--primary-teal);
+}
+
+.donation-button {
+  background: var(--primary-teal);
+  border-radius: 9px;
+  box-shadow: 0 10px 24px rgba(0, 128, 122, 0.22);
+  color: var(--bg-white);
+  font-weight: 700;
+  min-width: 128px;
+  padding: 14px 18px;
+  text-align: center;
+  text-decoration: none;
 }
 
 /* ==========================================================================
    BOTONES Y ETIQUETAS
-   Acciones principales y textos pequenos de seccion.
+   Acciones principales y textos pequeños de sección.
    ========================================================================== */
 .btn {
   align-items: center;
@@ -143,30 +169,34 @@ a {
 
 /* ==========================================================================
    HERO
-   Primera impresion de la pagina: mensaje corto + imagen grande.
+   Primera impresión de la página: mensaje corto + imagen grande.
    ========================================================================== */
 .hero-section {
   align-items: center;
   background:
-    radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.95), transparent 26%),
-    linear-gradient(135deg, var(--secondary-mint), var(--secondary-light-blue));
+    radial-gradient(circle at 82% 48%, rgba(255, 255, 255, 0.75), transparent 34%),
+    linear-gradient(90deg, #eefaf8 0%, #eefaf8 44%, #f8fbfa 100%);
   display: grid;
-  gap: 38px;
-  grid-template-columns: 1fr 1fr;
-  min-height: 560px;
+  gap: clamp(24px, 5vw, 68px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  min-height: 600px;
   padding: 64px max(34px, 8vw);
+  overflow: hidden;
+  position: relative;
 }
 
 .hero-copy {
   display: grid;
   gap: 20px;
-  max-width: 590px;
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-copy h1,
 .agenda-copy h1 {
   color: var(--primary-teal);
-  font-size: clamp(2.15rem, 5vw, 4.4rem);
+  font-size: clamp(2.15rem, 4.4vw, 3.95rem);
   line-height: 1.02;
 }
 
@@ -185,42 +215,36 @@ a {
 }
 
 .hero-media {
-  background: var(--bg-white);
-  border: 1px solid rgba(0, 161, 154, 0.12);
-  border-radius: 24px;
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
+  align-self: stretch;
+  min-height: 420px;
   position: relative;
 }
 
-.hero-photo {
-  aspect-ratio: 4 / 3;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-.hero-media-caption {
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 14px;
-  bottom: 18px;
-  box-shadow: var(--shadow-soft);
-  display: grid;
-  gap: 4px;
-  left: 18px;
-  max-width: calc(100% - 36px);
-  padding: 14px 16px;
+.hero-media::before {
+  background:
+    linear-gradient(90deg, rgba(238, 250, 248, 0.98), rgba(238, 250, 248, 0.28) 34%, rgba(255, 255, 255, 0.08)),
+    radial-gradient(circle at 78% 45%, rgba(255, 255, 255, 0.16), transparent 42%);
+  content: "";
+  inset: -22px;
+  pointer-events: none;
   position: absolute;
+  z-index: 1;
 }
 
-.hero-media-caption span {
-  color: var(--text-muted);
-  font-size: 0.92rem;
+.hero-media img {
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.72;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 88%, transparent 100%);
 }
 
 /* ==========================================================================
    SECCIONES DE CONTENIDO
-   Bloques sintetizados: quien somos, servicios, historia, instalaciones.
+   Bloques sintetizados: servicios, historia, instalaciones.
    ========================================================================== */
 .section-block {
   margin: 0 auto;
@@ -248,13 +272,6 @@ a {
   color: var(--primary-teal);
   font-size: clamp(1.85rem, 4vw, 3rem);
   line-height: 1.1;
-}
-
-.intro-grid {
-  align-items: center;
-  display: grid;
-  gap: 36px;
-  grid-template-columns: 0.8fr 1.2fr;
 }
 
 .service-grid {
@@ -329,8 +346,7 @@ a {
   grid-template-columns: 1fr 1fr;
 }
 
-.story-section img,
-.gallery-grid img {
+.story-section img {
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   height: 100%;
@@ -338,19 +354,206 @@ a {
   width: 100%;
 }
 
+.story-open {
+  margin-top: 18px;
+}
+
+.story-modal[hidden] {
+  display: none;
+}
+
+.story-modal {
+  align-items: center;
+  display: grid;
+  inset: 0;
+  padding: clamp(18px, 4vw, 48px);
+  position: fixed;
+  z-index: 100;
+}
+
+.story-modal-backdrop {
+  background: rgba(19, 35, 37, 0.72);
+  border: 0;
+  cursor: pointer;
+  inset: 0;
+  position: absolute;
+}
+
+.story-modal-panel {
+  background: var(--bg-white);
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  margin: 0 auto;
+  max-height: min(86vh, 820px);
+  max-width: 1180px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.story-modal-media {
+  animation: storyImageIn 0.42s ease both;
+  background: var(--secondary-mint);
+  min-height: 560px;
+}
+
+.story-modal-media img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.story-modal-content {
+  animation: storyTextIn 0.42s ease 0.08s both;
+  display: grid;
+  gap: 14px;
+  max-height: min(86vh, 820px);
+  overflow: auto;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.story-modal-content h2 {
+  color: var(--primary-teal);
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  line-height: 1.08;
+}
+
+.story-modal-text {
+  display: grid;
+  gap: 14px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.story-modal:not([hidden]) .story-modal-text p {
+  animation: storyParagraphIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.story-modal:not([hidden]) .story-modal-text p:nth-child(1) {
+  animation-delay: 0.24s;
+}
+
+.story-modal:not([hidden]) .story-modal-text p:nth-child(2) {
+  animation-delay: 0.42s;
+}
+
+.story-modal:not([hidden]) .story-modal-text p:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.story-modal:not([hidden]) .story-modal-text p:nth-child(4) {
+  animation-delay: 0.78s;
+}
+
+.story-modal:not([hidden]) .story-modal-text p:nth-child(5) {
+  animation-delay: 0.96s;
+}
+
+.story-back {
+  align-items: center;
+  background: var(--secondary-light-blue);
+  border: 0;
+  border-radius: 9px;
+  color: var(--primary-brown);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 700;
+  justify-self: start;
+  min-height: 44px;
+  padding: 10px 16px;
+}
+
+@keyframes storyImageIn {
+  from {
+    opacity: 0;
+    transform: translateX(90px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes storyTextIn {
+  from {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes storyParagraphIn {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-ready {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+
+.reveal-ready.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card.reveal-ready,
+.gallery-card.reveal-ready,
+.identity-band article.reveal-ready {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
 .gallery-grid {
   display: grid;
   gap: 18px;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.gallery-grid img {
+.gallery-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.gallery-card img {
   aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+
+.gallery-card figcaption {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.gallery-card h3 {
+  color: var(--primary-brown);
+  font-size: 1.08rem;
 }
 
 /* ==========================================================================
    AGENDA SIMPLE
-   Formulario corto para prospectos. El backend recibe nombre y telefono.
+   Formulario corto para prospectos. El backend recibe nombre y teléfono.
    ========================================================================== */
 .agenda-preview {
   background: linear-gradient(135deg, var(--soft-green), var(--secondary-light-blue));
@@ -465,8 +668,19 @@ a {
   background: var(--text-dark);
   color: var(--bg-white);
   display: flex;
+  gap: 18px;
   justify-content: space-between;
   padding: 26px 48px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.footer-schedule {
+  color: var(--secondary-light-blue);
+  font-weight: 700;
+  text-align: center;
 }
 
 .footer-links {
@@ -489,7 +703,7 @@ a {
 
 /* ==========================================================================
    RESPONSIVE
-   Ajustes para tablet y movil.
+   Ajustes para tablet y móvil.
    ========================================================================== */
 @media (max-width: 860px) {
   .site-header {
@@ -503,10 +717,14 @@ a {
   .main-nav {
     flex-wrap: wrap;
     gap: 18px;
+    justify-content: flex-start;
+  }
+
+  .donation-button {
+    min-width: auto;
   }
 
   .hero-section,
-  .intro-grid,
   .story-section,
   .contact-section,
   .agenda-preview,
@@ -521,7 +739,20 @@ a {
   }
 
   .hero-section {
+    background:
+      linear-gradient(180deg, #eefaf8 0%, #f8fbfa 100%);
+    gap: 20px;
+    grid-template-columns: 1fr;
+    min-height: 520px;
     padding: 44px 22px;
+  }
+
+  .hero-media {
+    min-height: 260px;
+  }
+
+  .hero-media img {
+    min-height: 260px;
   }
 
   .section-block {
@@ -533,10 +764,43 @@ a {
     margin-bottom: 0;
   }
 
+  .story-modal-panel {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+  }
+
+  .story-modal-media {
+    min-height: 230px;
+  }
+
+  .story-modal-content {
+    max-height: calc(90vh - 230px);
+  }
+
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
     gap: 14px;
     padding: 26px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-ready {
+    opacity: 1;
+    transform: none;
   }
 }

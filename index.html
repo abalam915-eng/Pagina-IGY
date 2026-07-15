@@ -1,70 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto Geriatrico de Yucatan - Inicio</title>
+    <title>Instituto Geriátrico de Yucatán - Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!-- HEADER: navegacion principal del sitio institucional -->
+    <!-- HEADER: navegación principal del sitio institucional -->
     <header class="site-header">
         <a class="brand" href="index.html" aria-label="Inicio IGY">
-            <img src="img/Logos/LogPage.png" alt="Logo Instituto Geriatrico de Yucatan" class="brand-logo">
+            <img src="img/Logos/LogPage.png" alt="Logo Instituto Geriátrico de Yucatán" class="brand-logo">
         </a>
 
-        <nav class="main-nav" aria-label="Navegacion principal">
-            <a href="index.html" class="active">Inicio</a>
-            <a href="agenda.html">Agenda tu cita</a>
-            <a href="https://vitamayor-demo.local" target="_blank" rel="noreferrer">VitaMayor</a>
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#historia">Historia</a>
+            <a href="#instalaciones">Instalaciones</a>
+            <a href="#agenda">Agenda tu cita</a>
+            <a href="#contacto">Contacto</a>
         </nav>
+        <a class="donation-button"
+            href="https://regalove.fundacionbepensa.org/asociaci%C3%B3n/instituto-geriatrico-de-yucatan/"
+            target="_blank" rel="noreferrer">Apoya y dona</a>
     </header>
 
     <main>
-        <!-- HERO: primera impresion visual para prospectos -->
+        <!-- HERO: primera impresión visual para prospectos -->
         <section class="hero-section" id="inicio">
             <div class="hero-copy">
-                <p class="eyebrow">Atencion geriatrica con calidez humana</p>
-                <h1>Cuidado digno, cercano y seguro para adultos mayores</h1>
+                <p class="eyebrow">Atención geriátrica con calidez humana</p>
+                <h1>El respeto que merecen, el cuidado que necesitan</h1>
                 <p>
-                    Acompanamos a cada persona con atencion profesional, espacios pensados para su bienestar
-                    y un trato humano para su familia.
+                    Somos una institución altruista sin fines de lucro. Acompañamos a cada persona con atención
+                    profesional, espacios pensados para su bienestar y un trato humano para su familia.
                 </p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="agenda.html">Agenda tu cita</a>
+                    <a class="btn btn-primary" href="#agenda">Agenda tu cita</a>
                     <a class="btn btn-secondary" href="#servicios">Conocer servicios</a>
                 </div>
             </div>
-
-            <div class="hero-media" aria-label="Galeria principal IGY">
-                <img src="img/Logos/LogoManitas.jpg" alt="Equipo del Instituto Geriatrico de Yucatan"
-                    class="hero-photo">
-                <div class="hero-media-caption">
-                    <strong>Atencion integral</strong>
-                    <span>Un entorno de cuidado, respeto y acompanamiento.</span>
-                </div>
+            <div class="hero-media" aria-hidden="true">
+                <img src="img/Logos/LogoManitas.jpg" alt="">
             </div>
         </section>
 
-        <!-- QUIENES SOMOS: resumen rapido de presentacion -->
-        <section class="section-block intro-grid">
-            <div class="section-heading">
-                <p class="eyebrow">Quienes somos</p>
-                <h2>Un hogar de atencion y confianza</h2>
-            </div>
-            <p>
-                Somos una organizacion dedicada al cuidado de personas adultas mayores que necesitan apoyo
-                fisico, mental o acompanamiento diario. Nuestro enfoque combina seguridad, profesion y calidez.
-            </p>
-        </section>
-
-        <!-- SERVICIOS: tarjetas sintetizadas y faciles de leer -->
+        <!-- SERVICIOS: tarjetas sintetizadas y fáciles de leer -->
         <section class="section-block" id="servicios">
             <div class="section-heading center">
                 <p class="eyebrow">Servicios</p>
-                <h2>Opciones de cuidado segun cada familia</h2>
+                <h2>Opciones de cuidado según cada familia</h2>
             </div>
 
             <div class="service-grid">
@@ -72,80 +60,152 @@
                     <img src="img/Img_nosotros/ServiciosF1.jpg" alt="Residencia permanente">
                     <div>
                         <h3>Residencia permanente</h3>
-                        <p>Cuidado continuo para adultos mayores que requieren atencion durante todo el dia.</p>
+                        <p>Atención y cuidados las 24 horas en un ambiente seguro, cálido y profesional.</p>
                     </div>
                 </article>
                 <article class="service-card">
                     <img src="img/Img_nosotros/ServiciosF2.jpg" alt="Estancia temporal">
                     <div>
                         <h3>Estancia temporal</h3>
-                        <p>Apoyo por periodos definidos para recuperacion, acompanamiento o descanso familiar.</p>
+                        <p>Cuidados especializados por recuperación, ausencia familiar o necesidad temporal.</p>
                     </div>
                 </article>
                 <article class="service-card">
-                    <img src="img/Img_nosotros/ServiciosF3.jpg" alt="Actividades y convivencia">
+                    <img src="img/Img_nosotros/ServiciosF3.jpg" alt="Guardería para personas adultas mayores">
                     <div>
-                        <h3>Guarderia de dia</h3>
-                        <p>Atencion durante el dia con alimentacion, actividades y supervision profesional.</p>
+                        <h3>Guardería para el adulto mayor</h3>
+                        <p>Apoyo durante el día con atención integral, alimentación y actividades terapéuticas.</p>
                     </div>
                 </article>
             </div>
 
             <div class="care-list">
-                <span>Enfermeria</span>
+                <span>Enfermería</span>
                 <span>Fisioterapia</span>
-                <span>Alimentacion supervisada</span>
+                <span>Alimentación supervisada</span>
                 <span>Higiene personal</span>
                 <span>Actividades recreativas</span>
-                <span>Acompanamiento diario</span>
+                <span>Acompañamiento diario</span>
             </div>
         </section>
 
-        <!-- MISION VISION VALORES: identidad institucional resumida -->
+        <!-- MISIÓN, VISIÓN Y VALORES: identidad institucional resumida -->
         <section class="section-block identity-band">
             <article>
-                <h3>Mision</h3>
+                <h3>Misión</h3>
                 <p>Trato digno al adulto mayor.</p>
             </article>
             <article>
-                <h3>Vision</h3>
-                <p>Ser una institución líder en el área de geriatría garantizando confianza y seguridad a pacientes y
-                    familiares otorgandoles calidad de atención.</p>
+                <h3>Visión</h3>
+                <p>Ser una institución líder en el área de geriatría, garantizando confianza y seguridad a pacientes y
+                    familiares mediante una atención de calidad.</p>
             </article>
             <article>
                 <h3>Valores</h3>
-                <p>Respeto, dignidad, calidez, seguridad, responsabilidad y acompanamiento.</p>
+                <p>Respeto, dignidad, calidez, seguridad, responsabilidad y acompañamiento.</p>
             </article>
         </section>
 
-        <!-- HISTORIA: version corta para no saturar al prospecto -->
-        <section class="section-block story-section">
+        <!-- HISTORIA: resumen visible con lectura completa opcional -->
+        <section class="section-block story-section" id="historia">
             <div>
                 <p class="eyebrow">Historia</p>
-                <h2>Desde 2003 cuidando con vocacion</h2>
+                <h2>Desde 2003 cuidando con vocación</h2>
                 <p>
-                    El Instituto Geriatrico de Yucatan A.C. nace para responder a una necesidad creciente:
-                    ofrecer un espacio donde las personas adultas mayores reciban cuidados profesionales y un trato
-                    lleno de respeto.
+                    El Instituto Geriátrico de Yucatán A.C. nació de la visión del Dr. Monforte, quien identificó una
+                    realidad cada vez más evidente: la población adulta mayor crece constantemente y muchas personas
+                    llegan a esta etapa con deterioro cognitivo, discapacidad física o ambas condiciones.
                 </p>
                 <p>
-                    Nuestra historia es una carta de presentacion, pero en la pagina se muestra de forma breve para
-                    que el visitante entienda rapido quienes somos.
+                    Por ello, el 24 de julio de 2003 abrió sus puertas una institución dedicada a brindar atención
+                    integral, especializada y humana a quienes necesitan cuidados profesionales y un trato digno.
                 </p>
+
+                <button class="btn btn-secondary story-open" type="button" data-open-story>
+                    Leer historia completa
+                </button>
             </div>
-            <img src="img/Img_nosotros/HistoriaF.jpg" alt="Historia del Instituto Geriatrico de Yucatan">
+            <img src="img/Img_nosotros/HistoriaF.jpg" alt="Historia del Instituto Geriátrico de Yucatán">
         </section>
 
-        <!-- INSTALACIONES: galeria visual para generar confianza -->
+        <div class="story-modal" data-story-modal hidden>
+            <button class="story-modal-backdrop" type="button" data-close-story aria-label="Cerrar historia"></button>
+            <section class="story-modal-panel" role="dialog" aria-modal="true" aria-labelledby="story-modal-title">
+                <div class="story-modal-media">
+                    <img src="img/Img_nosotros/HistoriaF.jpg" alt="Historia del Instituto Geriátrico de Yucatán">
+                </div>
+                <div class="story-modal-content">
+                    <button class="story-back" type="button" data-close-story>&larr; Regresar</button>
+                    <p class="eyebrow">Historia completa</p>
+                    <h2 id="story-modal-title">El origen del Instituto Geriátrico de Yucatán A.C.</h2>
+                    <div class="story-modal-text">
+                        <p>
+                            El Instituto Geriátrico de Yucatán A.C. nació de la visión del Dr. Monforte, quien, al
+                            analizar los cambios demográficos de nuestra sociedad, identificó una realidad que hoy es
+                            cada vez más evidente: la población de personas adultas mayores crece de manera constante y,
+                            con ello, aumenta también el número de quienes llegan a esta etapa de la vida con algún
+                            grado de deterioro cognitivo, discapacidad física o ambas condiciones.
+                        </p>
+                        <p>
+                            Consciente de esta necesidad y del compromiso que la sociedad tiene con sus personas
+                            mayores, decidió fundar una institución dedicada a brindar atención integral, especializada
+                            y, sobre todo, humana a quienes se encuentran en situación de vulnerabilidad.
+                        </p>
+                        <p>
+                            Fue así como el 24 de julio de 2003, el Instituto Geriátrico de Yucatán A.C. abrió sus
+                            puertas por primera vez, con el propósito de ofrecer un hogar donde las personas adultas
+                            mayores reciban cuidados profesionales, atención médica, rehabilitación, acompañamiento y un
+                            trato digno, respetuoso y lleno de calidez.
+                        </p>
+                        <p>
+                            Desde entonces, nuestra labor se ha guiado por la convicción de que cada persona merece
+                            vivir esta etapa de la vida con seguridad, bienestar y respeto. A través de un equipo
+                            multidisciplinario y de una atención centrada en la persona, trabajamos todos los días para
+                            preservar la calidad de vida, la dignidad y los derechos de quienes forman parte de nuestra
+                            comunidad.
+                        </p>
+                        <p>
+                            Hoy, después de más de dos décadas de servicio, el Instituto Geriátrico de Yucatán A.C.
+                            continúa siendo un referente en la atención geriátrica especializada en Yucatán, manteniendo
+                            vivo el legado de su fundador y renovando cada día su compromiso con las personas adultas
+                            mayores y sus familias.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- INSTALACIONES: galería visual con descripción breve -->
         <section class="section-block" id="instalaciones">
             <div class="section-heading center">
                 <p class="eyebrow">Instalaciones</p>
                 <h2>Espacios pensados para bienestar y seguridad</h2>
             </div>
             <div class="gallery-grid">
-                <img src="img/Img_nosotros/InstalacionesF1.jpg" alt="Instalaciones IGY 1">
-                <img src="img/Img_nosotros/InstalacionesF2.jpg" alt="Instalaciones IGY 2">
-                <img src="img/Img_nosotros/InstalacionesF3.jpg" alt="Instalaciones IGY 3">
+                <figure class="gallery-card">
+                    <img src="img/Img_nosotros/InstalacionesF1.jpg"
+                        alt="Habitaciones del Instituto Geriátrico de Yucatán">
+                    <figcaption>
+                        <h3>Habitaciones</h3>
+                        <p>Amplias, ventiladas, con iluminación natural y camas tipo hospital para una mayor seguridad.
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card">
+                    <img src="img/Img_nosotros/InstalacionesF2.jpg"
+                        alt="Sala de usos múltiples del Instituto Geriátrico de Yucatán">
+                    <figcaption>
+                        <h3>Sala de usos múltiples</h3>
+                        <p>Espacio para fisioterapia, terapia recreativa, terapia ocupacional y convivencia.</p>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card">
+                    <img src="img/Img_nosotros/InstalacionesF3.jpg" alt="Comedor del Instituto Geriátrico de Yucatán">
+                    <figcaption>
+                        <h3>Comedor</h3>
+                        <p>Área limpia, amplia y ventilada, con alimentos preparados bajo medidas de higiene.</p>
+                    </figcaption>
+                </figure>
             </div>
         </section>
 
@@ -153,16 +213,17 @@
         <section class="section-block agenda-preview" id="agenda">
             <div>
                 <p class="eyebrow">Agenda tu cita</p>
-                <h2>Dejanos tus datos y nos comunicamos contigo</h2>
-                <p>Solo pedimos nombre y telefono para evitar formularios largos.</p>
+                <h2>Hablemos sobre el cuidado de tu familiar</h2>
+                <p>Comparte tu nombre y teléfono. Nuestro equipo se pondrá en contacto
+                    contigo para orientarte y coordinar una visita.</p>
             </div>
             <form class="appointment-form" data-form-location="inicio">
                 <label>
                     Nombre
-                    <input type="text" name="nombre" placeholder="Ej. Ana Perez" required>
+                    <input type="text" name="nombre" placeholder="Ej. Ana Pérez" required>
                 </label>
                 <label>
-                    Telefono de contacto
+                    Teléfono de contacto
                     <input type="tel" name="telefono" placeholder="Ej. 999 123 4567" required>
                 </label>
                 <button class="btn btn-primary" type="submit">Agendar cita</button>
@@ -170,28 +231,29 @@
             </form>
         </section>
 
-        <!-- CONTACTO: informacion directa y mapa -->
+        <!-- CONTACTO: información directa y mapa -->
         <section class="section-block contact-section" id="contacto">
             <div>
                 <p class="eyebrow">Contacto</p>
                 <h2>Estamos para orientarte</h2>
                 <ul class="contact-list">
-                    <li><strong>Direccion:</strong> C. 38 549, Granjas, Reparto Granjas, 97370 Kanasin, Yuc.</li>
-                    <li><strong>Telefono:</strong> 999 236 7498 / 999 266 8849</li>
+                    <li><strong>Dirección:</strong> C. 38 549, Granjas, Reparto Granjas, 97370 Kanasín, Yuc.</li>
+                    <li><strong>Teléfono:</strong> 999 236 7498 / 999 266 8849</li>
                     <li><strong>WhatsApp:</strong> +52 1 999 236 7498</li>
                     <li><strong>Correo:</strong> institutogeriatrico@hotmail.com</li>
                 </ul>
             </div>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931.6088837928618!2d-89.58151686105381!3d20.93501766179136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567170df1d7885%3A0xb71ae425118a8282!2sINSTITUTO%20GERI%C3%81TRICO%20DE%20YUCAT%C3%81N!5e0!3m2!1ses-419!2smx!4v1783742153427!5m2!1ses-419!2smx"
-                title="Mapa Instituto Geriatrico de Yucatan" loading="lazy"
+                title="Mapa Instituto Geriátrico de Yucatán" loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </section>
     </main>
 
     <!-- FOOTER: cierre institucional -->
     <footer class="site-footer">
-        <p>&copy; 2026 Instituto Geriatrico de Yucatan A.C.</p>
+        <p>&copy; 2026 Instituto Geriátrico de Yucatán A.C.</p>
+        <p class="footer-schedule">Horario de atención: lunes a domingo, de 9:00 a.m. a 7:00 p.m.</p>
         <div class="footer-links">
             <a href="https://www.facebook.com/profile.php?id=100068238551197" target="_blank"
                 rel="noreferrer">Facebook</a>
