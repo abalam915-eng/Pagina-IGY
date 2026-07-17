@@ -2,8 +2,10 @@
  * main.js
  *
  * Interactividad nueva del sitio institucional:
+ * - menú móvil;
  * - envío del formulario corto de Agenda;
- * - mensajes de éxito/error sin recargar.
+ * - modal de historia completa;
+ * - animaciones suaves al hacer scroll.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================================
        FORMULARIO CORTO DE AGENDA
-       Se usa en index.html. Solo pide nombre y teléfono porque
-       la página funciona como carta de presentación y contacto inicial.
+       Envia nombre, teléfono, origen y honeypot al backend.
+       El backend repite validación y envía la notificación.
        ========================================================================== */
     const appointmentForms = document.querySelectorAll('.appointment-form');
 
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return {
             nombre: String(data.get('nombre') || '').trim(),
             telefono: String(data.get('telefono') || '').trim(),
+            empresa: String(data.get('empresa') || '').trim(),
             origen: form.dataset.formLocation || 'sitio',
         };
     }
